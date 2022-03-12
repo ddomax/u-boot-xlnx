@@ -84,8 +84,9 @@
 
 #define CONFIG_CLOCKS
 
+/*default fdt_addr_r value 0x40000000 (1GB) exceeds the maximum capacity of the installed RAM */
 #define ENV_MEM_LAYOUT_SETTINGS \
-	"fdt_addr_r=0x40000000\0" \
+	"fdt_addr_r=0x35000000\0" \
 	"fdt_size_r=0x400000\0" \
 	"pxefile_addr_r=0x10000000\0" \
 	"kernel_addr_r=0x18000000\0" \
@@ -95,6 +96,8 @@
 	"scriptaddr=0x20000000\0" \
 	"ramdisk_addr_r=0x02100000\0" \
 	"script_size_f=0x80000\0" \
+	"ipaddr=192.168.0.3\0" \
+	"serverip=192.168.0.2\0" \
 
 #if defined(CONFIG_MMC_SDHCI_ZYNQ)
 # define BOOT_TARGET_DEVICES_MMC(func)	func(MMC, mmc, 0) func(MMC, mmc, 1)
